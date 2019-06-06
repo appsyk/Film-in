@@ -1,0 +1,45 @@
+import React from 'react';
+
+class SearchBar extends React.Component {
+
+    state = { term: '' };
+
+    onSubmitHandle = (event) => {
+        event.preventDefault();
+
+        this.props.onFormSubmitProp(this.state.term);
+    }
+
+    render() {
+        return (
+            <div className="Search-Bar ui segment" style={{ background: '#073946', height: '67px' }}>
+                <div className='ui grid'>
+                    <div className='one wide column' style={{ marginTop: '-6.8px' }} >
+                        <img src='https://image.flaticon.com/icons/svg/190/190441.svg' alt="u r watching" width='50px' height='50px' />
+                    </div>
+                    <div className='five wide column'>
+                        <h1 style={{ color: '#02CBFC' }} >FilmIn</h1>
+                    </div>
+                    <div className='nine wide column'>
+
+                        <form onSubmit={this.onSubmitHandle} className="ui form">
+
+                            <input
+                                style={{ color: 'black', borderRadius: '20px', fontSize: '15px' }}
+                                className="field"
+                                type='text'
+                                // onChange={this.onChangeHandle}
+                                onChange={e => { this.setState({ term: e.target.value }) }}
+                                value={this.state.term}
+                                placeholder='Search for movies....'
+                            />
+                            <i className="big search icon" onClick={this.onSubmitHandle} style={{ marginTop: '-60px', marginLeft:'90%' }}></i>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+export default SearchBar;
