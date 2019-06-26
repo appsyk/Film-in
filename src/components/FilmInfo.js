@@ -1,5 +1,6 @@
 import './Circle.css';
 import React from 'react';
+import Helper from './Helper';
 // import Background from '../API/back_batty.jpg';
 
 
@@ -13,7 +14,7 @@ class FilmInfo extends React.Component {
         if (this.props.response === null) {
             return (
                 <div >
-                <img src='http://www.dream-wallpaper.com/free-wallpaper/movie-wallpaper/the-dark-knight-rises-2012-wallpaper/1680x1050/free-wallpaper-12.jpg' alt="YOu are Watching..." height='800px' width='100%' />
+                    <img src='http://www.dream-wallpaper.com/free-wallpaper/movie-wallpaper/the-dark-knight-rises-2012-wallpaper/1680x1050/free-wallpaper-12.jpg' alt="YOu are Watching..." height='800px' width='100%' />
                     <div id="notfound" >
                         <div className="notfound">
                             <div className="notfound-404">
@@ -31,116 +32,108 @@ class FilmInfo extends React.Component {
         else
             if (this.props.response === "True") {
                 return (
-                    <div className="ui">
-                        <div style={{ textAlign: 'center', fontSize: '270%', color: ' #f5b61c ' }}>{this.props.title} ({this.props.year})</div><br />
-
-                        <div className="ui grid">
-                            <div className="ui row">
-                                <div className='four wide column'>
-                                    <img className="ui image" src={this.props.poster} alt={this.props.title} style={{ height: '340px', width: '230px', marginLeft: '20%', marginTop: '15%' }} />
+                    <div>
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xs-12 text-center">
+                                    <h2 className="movie-main-title, myHomefont" style={{ color: '#F3BC0F', fontSize: '250%' }}>{this.props.title} ({this.props.year})</h2>
+                                    <div className="movie-genre, myHomefont" style={{ color: '#D1E8F0' }}>{this.props.genre}</div><br />
                                 </div>
-
-                                <div className="six wide column" style={{ marginLeft: '80px', textAlign: 'center' }}>
-                                    <div style={{ color: 'white', fontSize: '110%' }}>{this.props.genre}</div>
-                                    <div style={{ color: '#E0E7E7' }}>{this.props.language}</div><br />
-                                    <div style={{ color: 'white', fontSize: '120%' }}>{this.props.actors}</div><br />
-                                    <div style={{ color: '#E0E7E7' }}>{this.props.plot}</div><br />
-                                    <div className="ui two column centerd grid">
-                                        {/* <div className="ui row"> */}
-                                        <div className='column'>
-                                            <div class="ui link card" style={{ background: '#3F8A9C' }} >
-                                                <div class="content">
-                                                    <div class="header">{this.props.release_date}</div>
-                                                    <div class="meta">
-                                                        <span class="category" style={{ color: 'white' }}>Released</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='column'>
-                                            <div class="ui raised link card" style={{ background: '#3F8A9C' }} >
-                                                <div class="content">
-                                                    <div class="header">{this.props.imdbRating}</div>
-                                                    <div class="meta">
-                                                        <span class="category" style={{ color: 'white' }}>IMDB Ratings</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="ui two column centerd grid">
-                                        {/* <div className="ui row"> */}
-                                        <div className='column'>
-                                            <div class="ui raised link card" style={{ background: '#3F8A9C' }}>
-                                                <div class="content">
-                                                    <div class="header">{this.props.director}</div>
-                                                    <div class="meta">
-                                                        <span class="category" style={{ color: 'white' }}>Director</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className='column'>
-                                            <div class="ui raised link card" style={{ background: '#3F8A9C' }} >
-                                                <div class="content">
-                                                    <div class="header">{this.props.country}</div>
-                                                    <div class="meta">
-                                                        <span class="category" style={{ color: 'white' }}>Country</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="ui two column centerd grid">
-                                        <div className="ui row">
-                                            <div className='column'>
-                                                <div class="ui raised link card" style={{ background: '#3F8A9C' }}>
-                                                    <div class="content">
-                                                        <div class="header">{this.props.boxoffice}</div>
-                                                        <div class="meta">
-                                                            <span class="category" style={{ color: 'white' }}>BoxOffice Collection</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className='column'>
-                                                <div class="ui raised link card" style={{ background: '#3F8A9C' }} >
-                                                    <div class="content">
-                                                        <div class="header">{this.props.production}</div>
-                                                        <div class="meta">
-                                                            <span class="category" style={{ color: 'white' }}>Production</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* <div className='four wide column' style={{ marginTop: '-450px' }}>
-                                    <h3 style={{ color: 'white' }} >Search Related Videos :</h3>;
-                                <VideoItem />
-                                </div> */}
                             </div>
 
+                            <div className="row">
+                                {/* <div className="col-md-3 col-sm-6, imaging">
+                                    {this.props.poster === "N/A" ? (<a className="slide-item-wrap" itemProp="url" href={this.props.poster}><img itemProp="image" alt={this.props.title} src='https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png' className="img-responsive, imaging" /></a>)
+                                        : (<a className="slide-item-wrap, imaging" itemProp="url" href="Image_is_not_Available"><img itemProp="image" alt="Image_is_not_Available" src={this.props.poster} className="img-responsive, imaging" /></a>)}
+                                </div> */}
+                                <div className="col-md-3 col-sm-6 " >
+                                    {this.props.poster === "N/A" ? (<img className='imgD' style={{ boxShadow : '0 0 10px 5px #010404' }} alt={this.props.title} src='https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png' />)
+                                        : (<img className='imgD' alt="Image_is_not_Available" style={{ boxShadow : '0 0 10px 5px #020808' }} src={this.props.poster} />)}
+                                </div>
+
+                                <div className="col-md-6 text-center"><br />
+                                    <div className="movie-actors, myHomefont" style={{ color: '#EEEEEE' }}>{this.props.actors} </div><br />
+                                    <div className="movie-desc, myHomefont" style={{ color: '#CAD0D2' }} >{this.props.plot}</div><br />
+
+                                    <div className="row row-section, myHomefont">
+                                        <div className="col-md-6 col-sm-6">
+                                            <ul className="list-group text-left">
+                                                <li className="list-group-item"><span className="pull-right">{this.props.country} </span> <span className="text-muted text-uppercase">country:</span></li>
+                                                <li className="list-group-item"><span className="pull-right">{this.props.language}</span> <span className="text-muted text-uppercase">language:</span></li>
+                                                <li className="list-group-item"><span className="pull-right">{this.props.runtime}</span> <span className="text-muted text-uppercase">run time:</span></li>
+                                            </ul>
+                                        </div>
+                                        <div className="col-md-6 col-sm-6">
+                                            <ul className="list-group text-left">
+                                                <li className="list-group-item"><span className="pull-right">{this.props.release_date}</span> <span className="text-muted text-uppercase">Released:</span></li>
+                                                <li className="list-group-item"><span className="pull-right">{this.props.imdbRating}</span> <span className="text-muted text-uppercase">Imdb Rating:</span></li>
+                                                <li className="list-group-item"><span className="pull-right">{this.props.boxoffice}</span> <span className="text-muted text-uppercase">Box office:</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div className="row row-section, myHomefont">
+                                        <div className="col-md-12 col-sm-12">
+                                            <ul className="list-group text-left">
+                                                <li className="list-group-item"><span className="pull-right">{this.props.production} </span> <span className="text-muted text-uppercase">Company:</span></li>
+                                                <li className="list-group-item"><span className="pull-right">{this.props.director}</span> <span className="text-muted text-uppercase">Director:</span></li>
+                                                <li className="list-group-item"><span className="pull-right"><a href={this.props.website}>{this.props.website}</a></span> <span className="text-muted text-uppercase">Website:</span></li>
+                                            </ul>
+                                        </div>
+                                        <div className="clearfix"></div>
+                                        <div className="col-md-4" style={{ margin: '20px auto' }}>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* <div className="row align-items-center">
+                                <div className="col-md-3 col-sm-6 text-center"><a href="http://trk.globwo.online/fcd7cda5-79be-4517-bb5d-dc45ed285d59"><img src="/images/ads/shd.png" alt="" /></a></div>
+                                <div className="col-md-6 text-center"><a href="http://trk.globwo.online/fcd7cda5-79be-4517-bb5d-dc45ed285d59"><img src="/images/ads/dhd.png" alt="" /></a></div>
+                            </div> */}
+
+
+                            {/* <div className="row" style={{ margin: '20px auto' }}>
+                                <div className="col-md-offset-3 col-md-6 col-xs-12">
+                                    <h4 className="section-title">Trailer:</h4>
+                                    <div className="embed-responsive embed-responsive-16by9">
+                                        <iframe id="video-iframe" allowFullScreen="allowfullscreen" className="embed-responsive-item" src="//www.youtube.com/embed/uIlx5-aGq_A?rel=0&amp;hd=1"></iframe>
+                                    </div>
+                                </div>
+
+
+
+                            </div> */}
+                        </div>
+                        <div style={{ marginTop: '-4%' }}>
+                            <Helper />
                         </div>
                     </div>
                 );
             }
             else {
                 return (
-                    <div id="notfound" style={{ textAlign: 'center' }}>
-                        <div className="notfound">
-                            <div className="notfound-404">
-                                <h1>Oops!</h1>
-                                <img src='https://banner2.kisspng.com/20180418/ilw/kisspng-desktop-wallpaper-sorry-smiley-sorry-5ad70bb4221d48.6314340515240426761397.jpg' height='100px' width='100px' alt="Oops" />
+                    <div>
+                    <div className='container' style={{ textAlign: 'center', marginTop: '5%' }}>
+                        <div className="row">
+                            <div className="col-md-3 col-sm-6">
+                                <img src='https://static.alphacoders.com/alpha_system_360.png' alt="Oops" />
                             </div>
-                            <h2 className="font-style">This Movie {this.props.title} not found</h2>
-                            <p>The movie you are looking for might have been wrong spelled or is temporarily unavailable.</p>
-
-                        </div>
+                            <div className="col-md-6 col-sm-12" style={{ marginTop: '4%', color:'#CCE1E8' }}>
+                                <h1 className='myHomefont'>Oops!</h1>
+                                <h2 className="myHomefont">This Movie {this.props.title}is not found</h2>
+                                <h4 className="myHomefont">The movie you are looking for might have been wrong spelled or is temporarily unavailable.</h4>
+                                <h4 className="myHomefont">but you can watch these search related videos.</h4>
+                                <h3 className="myHomefont">thanks!</h3>
+                            </div>
+                        </div><br /><br /> <br /><br /><br /><br /> <br /><br />
+                        
                     </div>
+                    <div style={{ marginTop: '-4%' }}>
+                    <Helper />
+                </div>
+                
+                </div> 
                 );
             }
     }

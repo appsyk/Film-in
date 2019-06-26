@@ -18,6 +18,7 @@ import FilmInfo from './components/FilmInfo';
 import Helper from './components/Helper';
 
 import Images from './components/App';
+import SpinSearch from './Modules/SpinSearch';
 
 class CuTube extends React.Component {
 
@@ -37,7 +38,9 @@ class CuTube extends React.Component {
         boxoffice: null,
         imdbRating: null,
         production: null,
-        language: null
+        language: null,
+        website: null,
+        runTime: null
     };
 
 
@@ -61,7 +64,11 @@ class CuTube extends React.Component {
             boxoffice: response1.data.BoxOffice,
             production: response1.data.Production,
             imdbRating: response1.data.imdbRating,
-            language: response1.data.Language
+            language: response1.data.Language,
+            website: response1.data.Website,
+            runTime: response1.data.Runtime
+
+
         });
         // console.log(response1)
 
@@ -81,17 +88,16 @@ class CuTube extends React.Component {
 
     render() {
         // var name = this.state.title + this.state.year;
-
         return (
-            <div style={{ backgroundColor: '#031b2b' }}>
-                <div className="ui" style={{ marginLeft: '25px', marginRight: '25px', marginTop: '5px' }}>
-                    <SearchBar onFormSubmitProp={this.onTermSubmit} />
-                    {this.state.poster ? (
-                        <div className="ui grid" >
-                            <div className='ui row'>
+            <div className="" style={{ backgroundColor: '#031b2b' }}>
+                <div className="">
+
+                    <SearchBar onFormSubmitProp={this.onTermSubmit} spinStop={this.state.response} />
+                    {this.state.response ? (
+                        <div className='' >
+                            <div className=''>
                                 <div>
-                                    <div className="eight wide centered column">
-                                        {/* <SearchBar onFormSubmitProp={this.onTermSubmit} /> */}
+                                    <div>
 
                                         <FilmInfo
                                             poster={this.state.poster}
@@ -108,23 +114,41 @@ class CuTube extends React.Component {
                                             production={this.state.production}
                                             imdbRating={this.state.imdbRating}
                                             language={this.state.language}
+                                            website={this.state.website}
+                                            runtime={this.state.runTime}
                                         />
                                     </div>
                                 </div>
-                                <div className='twelve wide column'>
-                                    <VideoDetail video={this.state.selectedVid} />
+                                <div><VideoDetail video={this.state.selectedVid} /></div>
+                                {/* <div className="row" style={{ margin: '20px auto' }}>
+                                    <div className="col-md-offset-3 col-md-6 col-xs-12, vidRend ">
+                                        <div className="embed-responsive embed-responsive-16by9">
+                                            <VideoDetail video={this.state.selectedVid} />
+
+                                        </div>
+                                    </div>
+                                </div> */}
+                                {/* <div className='col-md-6 col-sm-12'>
+                                <VideoDetail video={this.state.selectedVid} />
+
+                                </div> */}
+                                <div className='col-md-3 col-sm-6, vidListAlign' >
+                                    <VideoList onSelectVid={this.onVidSelect} vidList={this.state.vids} />
                                 </div>
-                                <div className='four wide column' style={{ marginTop: '-450px' }}>
-                                    <h3 style={{ color: 'white' }} >Search Related Videos :</h3>;
-                                <VideoList onSelectVid={this.onVidSelect} vidList={this.state.vids} />
-                                </div>
+
+                                {/* <div className="col-md-3 col-sm-6">
+                                    <img src="https://www.nilfiskcfm.com/wp-content/uploads/2016/12/placeholder.png" />
+                                </div> */}
+                                <SpinSearch />
+
                             </div>
+
                         </div>
                     ) : (
-                            <div>
+                            <div >
                                 <section id="slider">
 
-                                    <div id="carousel-example-generic" className="carousel slide carousel-fade" data-ride="carousel" data-interval="1900">
+                                    <div style={{ margin: '1%' }} id="carousel-example-generic" className="carousel slide carousel-fade" data-ride="carousel" data-interval="1900">
                                         <ol className="carousel-indicators">
                                             <li data-target="#carousel-example-generic" data-slide-to="0" className="active"></li>
                                             <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -141,39 +165,47 @@ class CuTube extends React.Component {
                                         <div className="carousel-inner" role="listbox" >
                                             <div className="item active">
                                                 <div className="slider_overlay">
-                                                    <img src="https://initiate.alphacoders.com/images/721/cropped-1366-768-721152.jpg?8" alt="Wonder Woman"></img>
+                                                    <img className="blog-img" src="https://wallpapersite.com/images/pages/pic_w/11297.jpg" title="Wonder Woman" alt="Wonder Woman"></img>
                                                     <div className="carousel-caption">
-                                                        <div className="slider_text" style={{ marginTop: '-200px' }}>
-                                                            <h3>FilmIn</h3>
-                                                            <h2>Search for movies</h2>
+                                                        <div className="slider_text" style={{ marginTop: '-63%' }}>
+                                                            <h3 className='logoName'>FilmIn</h3>
+                                                            <h2 className='logoName'>Search for movies</h2>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             {Images.map((img) => {
                                                 return (
-                                                    <div className="item">
+                                                    <div className="item" key={img.alte}>
                                                         <div className="slider_overlay">
-                                                            <img src={img.imgUrl} alt={img.alte}></img>
+                                                            <img className="blog-img" src={img.imgUrl} alt={img.alte} title={img.alte} key={img.alte} ></img>
                                                             <div className="carousel-caption">
-                                                                <div className="slider_text" style={{ marginTop: '-200px' }}>
-                                                                    <h3>FilmIn</h3>
-                                                                    <h2>Search for movies</h2>
+                                                                <div className="slider_text navbar-fixed-center" style={{ marginTop: '-63%' }}>
+                                                                    <h3 className='logoName'>FilmIn</h3>
+                                                                    <h2 className='logoName'>Search for movies</h2>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        
                                                     </div>
+                                                    
                                                 );
                                             })
                                             }
                                         </div>
+                                        <SpinSearch />
+
                                         {/* <!--End of Carousel Inner--> */}
                                     </div>
+                                    <div>
+                                        <Helper />
+                                    </div>
                                 </section>
+
                             </div>
+
                         )}
                 </div>
-                <Helper />
 
             </div>
         );

@@ -3,7 +3,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 // import FilmIn from './components/App';
 import CuTube from './Cutube';
 // import SearchBar from './SearchBar';
-import Helper from './components/Helper';
+import FilmInfo from './components/FilmInfo';
 
 
 class App extends React.Component {
@@ -11,16 +11,12 @@ class App extends React.Component {
     return (
       <div>
         <BrowserRouter>
-        <div>
-          {/* <SearchBar /> */}
-        {/* <Route path='/search' component={SearchBar} /> */}
-        <div>
-          {/* <Route exact path='/movie' component={FilmIn} /> */}
-          <Route path='/' component={CuTube} />
-          </div>
-          <Helper />
+          <div>
+            <Route path='/' component={CuTube} />
+            <Route path='/${}' component={FilmInfo} />
           </div>
         </BrowserRouter>
+        {/* <Helper /> */}
       </div>
     );
   }

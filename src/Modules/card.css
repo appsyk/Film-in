@@ -1,0 +1,167 @@
+@media only screen and (min-width:767px) {
+  .vidListAlign{
+    margin-left: 72%;
+    margin-top: -32%;
+    overflow-y: scroll;
+    height: 380px;
+    /* scrollbar-face-color: red yellow; */
+  }
+
+  .vlist{
+    margin-left: -20px;
+  }
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .vidListSize{
+    height:100px;
+  }
+  .modalSize{
+    height: 250px;
+    width: 400px;
+  }
+  .modalVideo{
+    height: 90%;
+    width: 100%;
+  }
+  .vidRend{
+    margin-left: 10%;
+  }
+  .listTitle{
+    color: #CBE3EB;
+    width: 162px; 
+    font-size: 90%;
+    font-family: 'Ubuntu', bold;
+    margin-left: -47px;
+
+  }
+
+
+}
+
+@media only screen and (max-width:992px) {
+.imaging{
+  /* align-items: center; */
+  margin-left: 10%;
+}
+.offspin{
+  display: none;
+}
+.imgD {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.blog-img{
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+
+}
+}
+
+@media only screen and (min-width:993px) {
+    /* For tablets: */
+    .searchBar {
+      width: 40%;
+      padding: 0;
+      margin-left: 40%;
+    }
+    .spin {
+      width: 1000px;
+      float: right;
+    }
+  }
+  @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    .menu, .searchBar, .right {
+      width: 60%;
+    }
+  }
+
+  @media only screen and (max-width:439px) {
+      .filmIn{
+          margin-left: -32px;
+          padding: 10px;
+          
+      }
+      .serchIcon{
+        margin-top: -11%;
+      }
+      
+  }
+
+  @media only screen and (max-width:757px) {
+
+    .sliderImg{
+      max-height: 1080px;
+      max-width: auto;
+
+    }
+  }
+
+  @media only screen and (min-width:553px) {
+    .buttSrch{
+        align-content: 'center';
+    }
+  }
+
+
+  .navBackColor{
+      background-color: #073946;
+      height: 9vh;
+  }
+
+  .movie-main-info .movie-desc {
+    color: #7a8288;
+    padding: 10px 0;
+}
+
+.movie-main-info .movie-actors {
+  padding: 5px 0;
+}
+
+@media only screen and (min-width:767px) {
+
+.imgAlign{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: 25%;
+}
+}
+
+.listColor{
+  background-color: '#545758';
+}
+
+.videoList{
+  
+}
+
+.logoName{
+  /* font-family: 'Crimson', bold; */
+  font-family: 'Lobster', bold;
+  font-size: 40px;
+  text-shadow: 4px 4px 4px rgb(0, 0, 0);
+}
+
+.myCard{
+  font-family: 'Lobster', bold;
+  text-align: center;
+  /* font-size: 40px; */
+  /* text-shadow: 4px 4px 4px #9EB5BD; */
+}
+.myHomefont{
+  font-family: 'Ubuntu', bold;
+  /* font-size: 120px; */
+  /* text-shadow: 4px 4px 4px rgb(5, 7, 8); */
+}
+
+.searchIcon{
+  margin-top: -6%;
+  margin-left: 90%;
+}
+

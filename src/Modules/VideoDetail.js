@@ -14,15 +14,22 @@ const VideoDetail = ({ video }) => {
     const VidSrc = `https://www.youtube.com/embed/${video.id.videoId}`;
 
     return (
-        <div>
-            {/* <App /> */}
-            <div className='ui embed' style={{ marginTop: '3.5%' }}>
-                <iframe title='video player' src={VidSrc} />
-            </div>
 
-            <div className='ui segment' style={{ background: "#010B0E" }} >
-                <h4 className="ui header, listColor">{video.snippet.title}</h4>
-                <p className='listColor'>{video.snippet.description}</p>
+         <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content" style={{ background: '#D0ECEC' }} >
+                    <div className="modal-header">
+                        <h5 className="modal-title, myHomefont" id="exampleModalLabel" >{video.snippet.title}</h5>
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div className="modal-body">
+                        <iframe id="video-iframe" allowFullScreen="allowfullscreen" style={{ height: '300px', width: '100%' }} className="" title='video player' src={VidSrc} />
+
+                    </div>
+
+                </div>
             </div>
         </div>
     );
