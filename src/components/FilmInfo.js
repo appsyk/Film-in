@@ -32,7 +32,7 @@ class FilmInfo extends React.Component {
         else
             if (this.props.response === "True") {
                 return (
-                    <div>
+                    <div className='maincomp'>
                         <div className="container">
                             <div className="row">
                                 <div className="col-xs-12 text-center">

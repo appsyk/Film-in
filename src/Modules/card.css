@@ -1,10 +1,16 @@
 @media only screen and (min-width:767px) {
   .vidListAlign{
     margin-left: 72%;
-    margin-top: -31%;
+    /* margin-top: -31%; */
+    position: absolute;
     overflow-y: scroll;
     height: 380px;
+    top: 23%;
+    right: 4%;
     /* scrollbar-face-color: red yellow; */
+  }
+  .maincomp{
+    margin-left: -4%;
   }
 
   .vlist{
