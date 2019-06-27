@@ -17,11 +17,11 @@ const VideoDetail = ({ video }) => {
 
          <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
-                <div className="modal-content" style={{ background: '#D0ECEC' }} >
+                <div className="modal-content" style={{ background: '#073946' }} >
                     <div className="modal-header">
-                        <h5 className="modal-title, myHomefont" id="exampleModalLabel" >{video.snippet.title}</h5>
+                        <h5 className="modal-title, myHomefont" id="exampleModalLabel" style={{ color: 'rgb(243, 188, 15)' }} >{video.snippet.title}</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
+                            <span aria-hidden="true" title='close' style={{ color:'white' }}>&times;</span>
                         </button>
                     </div>
                     <div className="modal-body">

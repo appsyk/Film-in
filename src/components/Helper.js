@@ -4,7 +4,7 @@ class Helper extends React.Component {
   render() {
     return (
       <div className='footer navbar-fixed-bottom'>
-      <div data-toggle="modal" data-target="#exampleModalCenter" style={{ marginLeft: '1%',marginBottom:'-2%' , color: 'skyblue' }}>
+      <div data-toggle="modal" className='offspin' data-target="#exampleModalCenter" style={{ marginLeft: '1%',marginBottom:'-2%' , color: 'skyblue' }}>
           <i className="fa fa-copyright fa-1x" aria-hidden="true" title="click me for developer info!"></i>
         </div>
       <div style={{ textAlign: 'center', color: '#9CE9A4' }}>

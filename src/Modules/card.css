@@ -1,7 +1,7 @@
 @media only screen and (min-width:767px) {
   .vidListAlign{
     margin-left: 72%;
-    margin-top: -32%;
+    margin-top: -31%;
     overflow-y: scroll;
     height: 380px;
     /* scrollbar-face-color: red yellow; */
@@ -35,7 +35,7 @@
     font-size: 90%;
     font-family: 'Ubuntu', bold;
     margin-left: -47px;
-
+    width: 28.7vh;
   }
 
 
